@@ -2,7 +2,18 @@
 #include <stdlib.h>
 
 #define SIZE_TEXT 256
-b
+
+/*
+Exercicio
+
+Fazer um programa em que peça para o usuário digitar frases, essas frases devem ser gravadas em um arquivo de texto.
+O usuário deve poder digitar quantas frazes ele quiser, e cada frase deve ser armazenada em uma nova linha no arquivo.
+Após o usuário digitar as frases, você deve ter duas funcoes: 
+	- uma que imprima apenas as vogais e espaços que estão no arquivo
+	- outra que imprima apenas as consoantes e espaços que estão no arquivo
+*/
+
+
 FILE * abrir_arquivo(char arq_name[], char arq_mode[]){
         FILE * arq;
 
