@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1457054685 source:/home/joao/github/estruturas/arquivos/exemplo-arquivo-texto1/main.c
+	<stdio.h>
+	<stdlib.h>
+
