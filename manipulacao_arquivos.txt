@@ -1,0 +1,103 @@
+Guia para manipulação de arquivos em C
+
+Documentação das funções de manipulação de arquivos
+http://www.cplusplus.com/reference/clibrary/cstdio/<funcao>
+exemplo: http://www.cplusplus.com/reference/clibrary/cstdio/fputc/
+
+Na biblioteca padrão do C, existem alguns fluxos pré-definidos que não precisam (nem devem) ser abertos nem fechados:
+
+	stdin: dispositivo de entrada padrão (geralmente o teclado)
+	stdout: dispositivo de saída padrão (geralmente o vídeo)
+	stderr: dispositivo de saída de erro padrão (geralmente o vídeo)
+	stdaux: dispositivo de saída auxiliar (em muitos sistemas, associado à porta serial)
+	stdprn: dispositivo de impressão padrão (em muitos sistemas, associado à porta paralela)
+
+
+Formas de abertura de um arquivo
+
+	"r"		abre um arquivo para leitura
+	"w"		cria uma arquivo para escrita
+	"a"		acrescenta dados a um arquivo já existente
+	"rb"		abre um arquivo binário para leitura
+	"wb"		cria um arquivo binário para escrita
+	"ab"		acrescenta dados a um arq binário existente
+	"r+"		abre um arquivo para leitura/escrita
+	"w+"		cria um arquivo para leitura/escrita
+	"a+"		acrescenta dados/cria um arq para leit/escrita
+	"r+b"		abre um arquivo binario para leitura/escrita
+	"w+b"		cria um arquivo binário para leitura/escrita
+	"a+b"		acrescenta ou cria um arq bin para leit/escrita
+	"rt"		abre um arquivo texto para leitura
+	"wt"		cria um arquivo texto para leitura
+	"at"		acrescenta dados a um arquivo texto
+	"r+t"		abre um arquivo texto para leitura/escrita
+	"w+t"		cria um arquivo texto para leitura/escrita
+	"a+t"		acrescenta  ou cria arq. texto para leit/escrita
+
+Funções utilizadas para manipulação de arquivos (biblioteca stdio.h)
+
+	fopen( ) 	Abrir um arquivo
+	fclose( ) 	Fechar um arquivo	
+	fprintf( ) 	É para o arquivo o que printf é para o console
+	fscanf( ) 	É para o arquivo o que scanf é para o console
+	feof( ) 	Devolve verdadeiro se o fim do arquivo foi atingido
+	ferror( ) 	Devolve verdadeiro se ocorreu um erro
+	rewind( ) 	Posicionar o ponteiro de arquivo no início deste
+	remove( ) 	Apagar um arquivo
+	fflush( ) 	Descarregar um arquivo
+	ftell( )	Retorna a posição correte do curso no ponteiro do arquivo
+			A posição é a quantidade de bits a partir do inicio do arquivo
+	fseek( ) 	Posicionar o ponteiro de arquivo num byte específico (obtida por ftell())
+	fgetpos( )	Retorna a posição do cursor do arquivo, 
+			diferente da ftell() a posição não é retornada em bytes
+	fsetpos( )	Posiciona o cursor do arquivo na posição informada (obtida por fgetpos())
+	
+	
+
+Funcões de escrita e leitura em arquivos
+	
+	Funções para ler e escrever strings.
+		char *fputs(char *str, FILE *fp);
+		char *fgets(char *str, int tamanho, FILE *fp);
+	
+	Função para a leitura e escrita de caracteres
+		int putc ( int character, FILE *stream );
+		int getc ( FILE * stream );
+		int fputc ( int character, FILE * stream );
+		int fgetc ( FILE * stream );
+	
+
+	Funções que permitem ler e gravar blocos de dados.
+		unsigned fread(void *buffer, int num_bytes, int count,FILE *fp);
+		unsigned fwrite(void *buffer, int num_bytes, int count,FILE *fp);
+
+	Fuções que permitem ler e escrever blocos formatados, identico a printf e scanf
+		int fprintf ( FILE * stream, const char * format, ... );
+		int fscanf ( FILE * stream, const char * format, ... );
+	
+	Funções para manipular a posição do cursor em um arquivo
+		long int ftell ( FILE * stream ); 
+		int fsetpos ( FILE * stream, const fpos_t * pos );
+		int fgetpos ( FILE * stream, fpos_t * position );
+
+
+Macros Importantes: NULL, EOF, FOPEN_MAX, SEEK_SET, SEEK_CUR e SEEK_END.
+
+	NULL define um ponteiro nulo.
+	
+	EOF geralmente é definida como -1 e devolve este valor quando uma função de entrada tenta ler além do final do arquivo.
+	
+	FOPEN_MAX define um valor inteiro que determina o número de arquivos que podem ser abertos ao mesmo tempo.
+	
+	SEEK_SET, SEEK_CUR e SEEK_END são usadas com a função fseek( ) para o acesso aleatório a um arquivo.
+		SEEK_SET 	0 	Início do arquivo
+		SEEK_CUR 	1 	Ponto corrente no arquivo
+		SEEK_END 	2 	Fim do arquivo
+
+
+
+Links úteis
+http://homepages.dcc.ufmg.br/~joaoreis/Site%20de%20tutoriais/c_int/arquivos.htm
+http://www.goulart.pro.br/arquivos.html
+http://mtm.ufsc.br/~azeredo/cursoC/aulas/c970.html
+http://www.cplusplus.com/reference/clibrary/cstdio/
